@@ -17,36 +17,48 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <h1 class="display-3 text-center">Конвентер величин</h1>
+            <div class="col-md-6 offset-md-3">
+                <h1 class="display-3 text-center mb-3">Конвентер величин</h1>
                 <form>
                     <div class="form-group">
+                        <label for="kmInput"></label>
                         <input type="number" id="kmInput" placeholder="Введите километры: "
-                               class="form-control form-control-lg">
+                                                            class="form-control form-control-lg">
                     </div>
                 </form>
                 <div id="output">
-                    <div class="card alert-warning">
+                    <div class="card alert-warning mb-2">
                         <div class="card-block">
                             <h4>Метры:</h4>
                             <div id="metresOutput"></div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card alert-primary mb-2">
                         <div class="card-block">
                             <h4>Сантиметры:</h4>
                             <div id="smOutput"></div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card alert-success mb-2">
                         <div class="card-block">
                             <h4>Миллиметры:</h4>
-                            <div id="millimetersOutput"></div>
+                            <div id="mlOutput"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('output').style.visibility = 'hidden';
+        document.getElementById('kmInput').addEventListener('input', function (e){
+            document.getElementById('output').style.visibility = 'visible';
+            let km = e.target.value;
+            document.getElementById('metresOutput').innerHTML = km * 1000;
+            document.getElementById('smOutput').innerHTML = km * 100000;
+            document.getElementById('mlOutput').innerHTML = km * 1000000;
+        })
+    </script>
 </body>
 </html>
